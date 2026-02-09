@@ -1,88 +1,57 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>San Valentín 💖</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #ffe6eb;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-      text-align: center;
-    }
-
-    h1 {
-      margin-bottom: 30px;
-    }
-
-    .buttons {
-      position: relative;
-      width: 300px;
-      height: 200px;
-    }
-
-    button {
-      padding: 15px 25px;
-      font-size: 18px;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      position: absolute;
-      transition: all 0.3s ease;
-    }
-
-    #yes {
-      background-color: #ff4d6d;
-      color: white;
-      left: 40px;
-      top: 80px;
-    }
-
-    #no {
-      background-color: #999;
-      color: white;
-      right: 40px;
-      top: 80px;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>¿Quieres ser mi San Valentín? 💘</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #ffe6eb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.container {
+  text-align: center;
+}
+button {
+  font-size: 20px;
+  padding: 12px 24px;
+  margin: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+#yes {
+  background-color: #ff4d6d;
+  color: white;
+}
+#no {
+  background-color: #ccc;
+}
+</style>
 </head>
 <body>
 
-  <div>
-    <h1>💘 ¿Quieres ser mi San Valentín? 💘</h1>
-    <div class="buttons">
-      <button id="yes">Sí 💖</button>
-      <button id="no">No 🙈</button>
-    </div>
-  </div>
+<div class="container">
+  <h1>¿Quieres ser mi San Valentín? 💖</h1>
+  <button id="yes" onclick="yes()">Sí 💘</button>
+  <button id="no" onclick="growYes()">No 😅</button>
+</div>
 
-  <script>
-    let yesButton = document.getElementById("yes");
-    let noButton = document.getElementById("no");
-    let scale = 1;
+<script>
+let size = 20;
 
-    noButton.addEventListener("mouseover", () => {
-      // Mover el botón "No"
-      const x = Math.random() * 200;
-      const y = Math.random() * 150;
-      noButton.style.left = x + "px";
-      noButton.style.top = y + "px";
+function growYes() {
+  size += 10;
+  document.getElementById("yes").style.fontSize = size + "px";
+}
 
-      // Hacer crecer el botón "Sí"
-      scale += 0.2;
-      yesButton.style.transform = `scale(${scale})`;
-    });
-
-    yesButton.addEventListener("click", () => {
-      document.body.innerHTML = `
-        <h1>💖 ¡Sabía que dirías que sí! 💖<br>Feliz San Valentín 🥰</h1>
-      `;
-    });
-  </script>
+function yes() {
+  document.body.innerHTML = "<h1>💖 Sabía que dirías que sí 💖</h1>";
+}
+</script>
 
 </body>
 </html>
